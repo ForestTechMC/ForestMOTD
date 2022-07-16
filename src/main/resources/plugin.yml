@@ -1,0 +1,8 @@
+name: ForestMOTD
+author: Fly_Ultra
+version: 1.0.1
+main: me.flyultra.staffchat.spigot.Spigot
+database: false
+
+commands:
+  forestmotd:

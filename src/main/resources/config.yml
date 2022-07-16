@@ -1,0 +1,26 @@
+#
+# ForestMOTD v1.0.1
+#
+#   If you find bug or you have an idea for an adjustment, please contact us on
+#   https://discord.com/invite/2PpdrfxhD4
+#
+
+#
+# MOTD data
+#
+#   Use ":n:" to do second line
+#   "maxPlayers: -1" This will set default server number
+#
+#
+#
+motd:
+  maxPlayers: 69
+  iconName: "icon.png"
+  text: "Best server in the World! ForestTech <3"
+  hoverBox:
+  - " "
+  - " "
+
+message:
+  noPerm: "{#malachite>}&lForest{#bluestone<}&f&lMOTD &7You don't have sufficient permissions..."
+  reload: "{#malachite>}&lForest{#bluestone<}&f&lMOTD &7Config & Data reloaded..."
