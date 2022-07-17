@@ -1,6 +1,7 @@
 package me.flyultra.forestMotd.bungee;
 
 
+import com.tchristofferson.configupdater.ConfigUpdater;
 import lombok.SneakyThrows;
 import me.flyultra.forestMotd.bungee.command.BungeeMOTDCommand;
 import me.flyultra.forestMotd.bungee.controller.BungeeMOTDController;
@@ -95,9 +96,12 @@ public class Bungee extends Plugin {
     public void faviconSetup(String faviconName) {
         try {
             favicon = Favicon.create(ImageIO.read(new File(faviconName)));
+            if (favicon == null) {
+                getLogger().warning("Icon cant be loaded! (Wrong input)");
+                return;
+            }
         } catch (IOException e) {
             e.printStackTrace();
-            getLogger().warning("Icon cant be loaded! (Wrong input name)");
         }
     }
 
@@ -115,7 +119,6 @@ public class Bungee extends Plugin {
 
         for (String fileName : fileNameData) {
             File file = new File(Bungee.getInstance().getDataFolder(), fileName + ".yml");
-
             if (!file.exists()) {
                 try (InputStream in = Bungee.getInstance().getResourceAsStream(fileName + ".yml")) {
                     Files.copy(in, file.toPath());

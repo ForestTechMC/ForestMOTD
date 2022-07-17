@@ -43,6 +43,11 @@ public class MOTDManager {
         spigot.saveConfig();
     }
 
+    public void setHoverBox(List<String> hoverBoxL) {
+        hoverBox = hoverBoxL;
+        spigot.getConfig().set(ConfigOptions.MOTD_HOVER_BOX, hoverBoxL);
+        spigot.saveConfig();
+    }
 
     public int getMaxPlayers() {
         if (maxPlayers == -1) {
@@ -66,6 +71,9 @@ public class MOTDManager {
     }
 
     public List<String> getHoverBox() {
+        if (hoverBox == null || hoverBox.size() == 0) {
+            spigot.getLogger().warning("Hover box is null!");
+        }
         return hoverBox;
     }
 }

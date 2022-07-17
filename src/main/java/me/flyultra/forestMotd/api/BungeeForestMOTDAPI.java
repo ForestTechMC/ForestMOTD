@@ -22,7 +22,7 @@ public class BungeeForestMOTDAPI {
         Bungee.getInstance().getBungeeMOTDManager().setMaxPlayers(maxPlayers);
     }
 
-    public static void changeHoverList(List<String> list) {
+    public static void changeHoverBox(List<String> list) {
         Bungee.getInstance().getBungeeMOTDManager().setHoverBox(list);
     }
 

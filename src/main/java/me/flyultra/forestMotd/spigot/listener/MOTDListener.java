@@ -10,6 +10,7 @@ import com.comphenix.protocol.events.PacketEvent;
 import com.comphenix.protocol.wrappers.WrappedGameProfile;
 import me.flyultra.forestMotd.spigot.Spigot;
 import me.flyultra.forestMotd.utils.Utils;
+import net.md_5.bungee.api.ProxyServer;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -30,14 +31,25 @@ public class MOTDListener implements Listener {
     @EventHandler
     public void onPing(ServerListPingEvent e) {
 
-        e.setMotd(Utils.colorize(spigot.getMotdManager().getMotdText().replace(":n:", "\n")));
+        e.setMotd(Utils.colorize(spigot.getMotdManager().getMotdText()
+                .replace(":n:", "\n")
+                .replace("%online%", String.valueOf(spigot.getServer().getOnlinePlayers().size()))
+                .replace("%version%", spigot.getServer().getBukkitVersion())
+                .replace("%defaultMax%", String.valueOf(spigot.getServer().getMaxPlayers()))
+                .replace("%configPlayersMax%", String.valueOf(spigot.getMotdManager().getMaxPlayers()))));
+
         e.setMaxPlayers(spigot.getMotdManager().getMaxPlayers());
         try {
+            File icon = new File(spigot.getMotdManager().getIconName());
+            if (!icon.exists()) {
+                spigot.getLogger().warning("Icon cant be loaded! (Wrong input)");
+                return;
+            }
             e.setServerIcon(Bukkit.loadServerIcon(new File(spigot.getMotdManager().getIconName())));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        if (spigot.getMotdManager().getHoverBox().size() != 0) {
+        if (spigot.getMotdManager().getHoverBox().size() != 0 && Bukkit.getServer().getPluginManager().getPlugin("ProtocolLib") != null) {
             List<WrappedGameProfile> lines = getHoverBoxData();
             ProtocolManager pm = ProtocolLibrary.getProtocolManager();
 
@@ -48,14 +60,20 @@ public class MOTDListener implements Listener {
                     event.getPacket().getServerPings().read(0).setPlayers(lines);
                 }
             });
-            return;
         }
     }
 
     public List<WrappedGameProfile> getHoverBoxData() {
         List<WrappedGameProfile> lines = new ArrayList<WrappedGameProfile>();
         for (int i = 0; i < spigot.getMotdManager().getHoverBox().size(); i++) {
-            lines.add(new WrappedGameProfile(String.valueOf(i), Utils.colorize(spigot.getMotdManager().getHoverBox().get(i))));
+            lines.add(new WrappedGameProfile(String.valueOf(i), Utils.colorize(spigot.getMotdManager().getHoverBox().get(i)
+                    .replace(":n:", "\n")
+                    .replace("%online%", String.valueOf(spigot.getServer().getOnlinePlayers().size()))
+                    .replace("%version%", spigot.getServer().getBukkitVersion())
+                    .replace("%defaultMax%", String.valueOf(spigot.getServer().getMaxPlayers()))
+                    .replace("%configPlayersMax%", String.valueOf(spigot.getMotdManager().getMaxPlayers())))
+
+            ));
         }
 
 

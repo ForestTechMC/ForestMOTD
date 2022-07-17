@@ -60,7 +60,6 @@ public class BungeeMOTDManager {
 
     }
 
-
     public int getMaxPlayers() {
         if (maxPlayers == -1) {
             return ProxyServer.getInstance().getConfig().getPlayerLimit();

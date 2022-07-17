@@ -1,21 +1,31 @@
 #
 # ForestMOTD v1.0.1
 #
-#   If you find bug or you have an idea for an adjustment, please contact us on
+# | If you find bug or you have an idea for an adjustment, please contact us on
 #   https://discord.com/invite/2PpdrfxhD4
+#
+# | %online% - Return number of players on server
+# | %defaultMax% - Default server max server player size
+# | %version% - Server version
+# | %configPlayersMax% - Config player max number
+#
+# | Permission = forestMOTD.admin
 #
 
 #
-# MOTD data
+# MOTD
 #
-#   Use ":n:" to do second line
-#   "maxPlayers: -1" This will set default server number
+# | Use ":n:" to do second line
+#   "maxPlayers: -1" - This will set default server number
 #
 motd:
   maxPlayers: 69
-  iconName: "icon.png"
+# | 64x64 size icon
+  iconName: "server-icon.png"
   text: "{#30FF5A>}&lForest{#7DFFC2<}&f&lMOTD:n:&rBest server in the Universe!"
-# Only for Bungee :/
+#
+# | If you want to use hover box on spigot, download ProtocolLib! (5.0.0+)
+#
   hoverBox:
   - "&c❤  &a&lForest&7&lTech &c❤"
   - " "
@@ -23,7 +33,7 @@ motd:
   - " "
 
 #
-# Messages
+# | Messages
 #
 message:
   noPerm: "{#malachite>}&lForest{#bluestone<}&f&lMOTD &7You don't have sufficient permissions..."
