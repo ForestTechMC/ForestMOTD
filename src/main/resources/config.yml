@@ -11,16 +11,20 @@
 #   Use ":n:" to do second line
 #   "maxPlayers: -1" This will set default server number
 #
-#
-#
 motd:
   maxPlayers: 69
   iconName: "icon.png"
-  text: "Best server in the World! ForestTech <3"
+  text: "{#30FF5A>}&lForest{#7DFFC2<}&f&lMOTD:n:&rBest server in the Universe!"
+# Only for Bungee :/
   hoverBox:
+  - "&c❤  &a&lForest&7&lTech &c❤"
   - " "
+  - " &aPlugins with &c❤"
   - " "
 
+#
+# Messages
+#
 message:
   noPerm: "{#malachite>}&lForest{#bluestone<}&f&lMOTD &7You don't have sufficient permissions..."
   reload: "{#malachite>}&lForest{#bluestone<}&f&lMOTD &7Config & Data reloaded..."

@@ -1,20 +1,21 @@
 package me.flyultra.forestMotd.spigot;
 
+import com.comphenix.protocol.PacketType;
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
+import com.comphenix.protocol.events.PacketAdapter;
 import com.tchristofferson.configupdater.ConfigUpdater;
-import lombok.SneakyThrows;
 import me.flyultra.forestMotd.spigot.command.MOTDCommand;
 import me.flyultra.forestMotd.spigot.completer.MOTDCompleter;
 import me.flyultra.forestMotd.spigot.controller.MOTDController;
 import me.flyultra.forestMotd.spigot.listener.MOTDListener;
 import me.flyultra.forestMotd.spigot.manager.MOTDManager;
-import net.md_5.bungee.api.Favicon;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,6 +60,9 @@ public class Spigot extends JavaPlugin {
         getLogger().warning("   Spigot");
         getLogger().warning(" ");
     }
+
+    /*-----------------------------------------------------------------------------*/
+
 
     /*-----------------------------------------------------------------------------*/
 

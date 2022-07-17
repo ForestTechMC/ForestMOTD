@@ -141,6 +141,7 @@ public class BungeeColorAPI {
         this.redChannel = redChannel;
         this.greenChannel = greenChannel;
         this.blueChannel = blueChannel;
+        COLORS_BY_CHAR.put(character, this);
     }
 
     public static String processGradient(String input) {

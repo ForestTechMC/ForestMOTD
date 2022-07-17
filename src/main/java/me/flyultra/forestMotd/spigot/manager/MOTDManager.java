@@ -25,6 +25,24 @@ public class MOTDManager {
         hoverBox = spigot.getConfig().getStringList(ConfigOptions.MOTD_HOVER_BOX);
     }
 
+    public void changeIconName(String iconNameS) {
+        iconName = iconNameS;
+        spigot.getConfig().set(ConfigOptions.MOTD_ICON_NAME, iconNameS);
+        spigot.saveConfig();
+    }
+
+    public void setMaxPlayers(int maxPlayersI) {
+        maxPlayers = maxPlayersI;
+        spigot.getConfig().set(ConfigOptions.MOTD_MAX_PLAYERS, maxPlayersI);
+        spigot.saveConfig();
+    }
+
+    public void setMotdText(String motdTextS) {
+        motdText = motdTextS;
+        spigot.getConfig().set(ConfigOptions.MOTD_TEXT, motdTextS);
+        spigot.saveConfig();
+    }
+
 
     public int getMaxPlayers() {
         if (maxPlayers == -1) {
@@ -47,4 +65,7 @@ public class MOTDManager {
         return motdText;
     }
 
+    public List<String> getHoverBox() {
+        return hoverBox;
+    }
 }

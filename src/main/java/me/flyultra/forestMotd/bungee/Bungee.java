@@ -39,15 +39,19 @@ public class Bungee extends Plugin {
         bStats();
         listeners();
         commands();
-        faviconSetup(getBungeeMOTDManager().getIconName());
+        faviconLoader();
 
         getLogger().info(" ");
         getLogger().info(" ForestMOTD v1.0.1 | Enabled");
         getLogger().info("  ");
         getLogger().info("   Author: Fly_Ultra");
         getLogger().info("   Version: 1.0.1");
-        getLogger().info("   Spigot");
+        getLogger().info("   Bungee");
         getLogger().info(" ");
+    }
+
+    public void faviconLoader() {
+        faviconSetup(getBungeeMOTDManager().getIconName());
     }
 
     @Override
@@ -57,7 +61,7 @@ public class Bungee extends Plugin {
         getLogger().warning("  ");
         getLogger().warning("   Author: Fly_Ultra");
         getLogger().warning("   Version: 1.0.1");
-        getLogger().warning("   Spigot");
+        getLogger().warning("   Bungee");
         getLogger().warning(" ");
     }
 
@@ -87,9 +91,14 @@ public class Bungee extends Plugin {
      *
      * @param faviconName name of icon
      */
-    @SneakyThrows
+
     public void faviconSetup(String faviconName) {
-        favicon = Favicon.create(ImageIO.read(new File(faviconName)));
+        try {
+            favicon = Favicon.create(ImageIO.read(new File(faviconName)));
+        } catch (IOException e) {
+            e.printStackTrace();
+            getLogger().warning("Icon cant be loaded! (Wrong input name)");
+        }
     }
 
     /*-----------------------------------------------------------------------------*/

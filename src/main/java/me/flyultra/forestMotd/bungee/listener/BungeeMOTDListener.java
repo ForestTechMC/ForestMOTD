@@ -33,11 +33,11 @@ public class BungeeMOTDListener implements Listener {
 
     public ServerPing.PlayerInfo[] getHoverBoxProfiles() {
         int l = bungee.getBungeeMOTDManager().getHoverBox().size();
-        ServerPing.PlayerInfo[] profiles = new ServerPing.PlayerInfo[l];
+        ServerPing.PlayerInfo[] lines = new ServerPing.PlayerInfo[l];
         for (int i = 0; i < l; i++) {
-            profiles[i] = new ServerPing.PlayerInfo(Utils.colorizeBungee(bungee.getBungeeMOTDManager().getHoverBox().get(i)), new UUID(0L, 0L));
+            lines[i] = new ServerPing.PlayerInfo(Utils.colorizeBungee(bungee.getBungeeMOTDManager().getHoverBox().get(i)), new UUID(0L, 0L));
         }
-        return profiles;
+        return lines;
     }
 
 }

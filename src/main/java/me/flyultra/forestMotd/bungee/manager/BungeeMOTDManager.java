@@ -26,6 +26,40 @@ public class BungeeMOTDManager {
         hoverBox = bungee.getYamlFile("config").getStringList(ConfigOptions.MOTD_HOVER_BOX);
     }
 
+    public void changeIconName(String iconNameS) {
+        iconName = iconNameS;
+        bungee.getYamlFile("config").set(ConfigOptions.MOTD_ICON_NAME, iconNameS);
+        bungee.saveYamlFiles("config");
+    }
+
+    public void setMaxPlayers(int maxPlayersI) {
+        maxPlayers = maxPlayersI;
+        bungee.getYamlFile("config").set(ConfigOptions.MOTD_MAX_PLAYERS, maxPlayersI);
+        bungee.saveYamlFiles("config");
+    }
+
+    public void setMotdText(String motdTextS) {
+        if (motdTextS == null) {
+            bungee.getLogger().warning("MOTD text is empty!");
+            return;
+        }
+        motdText = motdTextS;
+        bungee.getYamlFile("config").set(ConfigOptions.MOTD_TEXT, motdTextS);
+        bungee.saveYamlFiles("config");
+    }
+
+
+    public void setHoverBox(List<String> hoverBoxL) {
+        if (hoverBoxL == null || hoverBoxL.size() == 0) {
+            bungee.getLogger().warning("Hover list is empty!");
+            return;
+        }
+        hoverBox = hoverBoxL;
+        bungee.getYamlFile("config").set(ConfigOptions.MOTD_HOVER_BOX, hoverBoxL);
+        bungee.saveYamlFiles("config");
+
+    }
+
 
     public int getMaxPlayers() {
         if (maxPlayers == -1) {
