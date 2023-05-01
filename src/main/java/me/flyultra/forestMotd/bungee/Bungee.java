@@ -43,10 +43,10 @@ public class Bungee extends Plugin {
         faviconLoader();
 
         getLogger().info(" ");
-        getLogger().info(" ForestMOTD v1.0.1 | Enabled");
+        getLogger().info(" ForestMOTD v1.0 | Enabled");
         getLogger().info("  ");
         getLogger().info("   Author: Fly_Ultra");
-        getLogger().info("   Version: 1.0.1");
+        getLogger().info("   Version: 1.0");
         getLogger().info("   Bungee");
         getLogger().info(" ");
     }
@@ -58,10 +58,10 @@ public class Bungee extends Plugin {
     @Override
     public void onDisable() {
         getLogger().warning(" ");
-        getLogger().warning(" ForestMOTD v1.0.1 | Disabled");
+        getLogger().warning(" ForestMOTD v1.0 | Disabled");
         getLogger().warning("  ");
         getLogger().warning("   Author: Fly_Ultra");
-        getLogger().warning("   Version: 1.0.1");
+        getLogger().warning("   Version: 1.0");
         getLogger().warning("   Bungee");
         getLogger().warning(" ");
     }
@@ -187,7 +187,7 @@ public class Bungee extends Plugin {
 
 
     public void bStats() {
-        int pluginId = 14541;
+        int pluginId = 0000;
         Metrics metrics = new Metrics(this, pluginId);
     }
 

@@ -1,6 +1,6 @@
 name: ForestMOTD
 author: Fly_Ultra
-version: 1.0.1
+version: 1.0
 main: me.flyultra.forestMotd.bungee.Bungee
 database: false
 

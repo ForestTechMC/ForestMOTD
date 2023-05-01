@@ -102,7 +102,7 @@ public class Spigot extends JavaPlugin {
     /*-----------------------------------------------------------------------------*/
 
     public void bStats() {
-        int pluginId = 15803;
+        int pluginId = 0000;
         Metrics metrics = new Metrics(this, pluginId);
     }
 
